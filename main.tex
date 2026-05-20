@@ -1,7 +1,5 @@
 \documentclass[sigconf,nonacm]{acmart}
 
-%%
-%% \BibTeX command to typeset BibTeX logo in the docs
 \AtBeginDocument{%
   \providecommand\BibTeX{{%
     Bib\TeX}}}
@@ -12,7 +10,7 @@
 
 \author{Liam Sanft}
 \email{liam.sanft@mailbox.tu-dresden.de}
-\affiliation{%
+\affiliation{
   \institution{TU Dresden}
   \country{Germany}
   \city{Dresden}
@@ -27,7 +25,7 @@
 \maketitle
 
 \section{Introduction}
-Here comes the introduction.
+For decades, database systems operated as self-contained units: storage, processing, and format were tightly coupled within a single system boundary. External systems submitted queries and received results, while everything in between was managed internally. With full control over the physical layout, systems could optimize both storage and processing of data freely within their own boundaries. As long as data resided within a single system, this model was sufficient \cite{silberschatz_database_2020}.
 
 \balance
 \bibliographystyle{ACM-Reference-Format}
