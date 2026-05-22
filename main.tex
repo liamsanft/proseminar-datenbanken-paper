@@ -41,6 +41,14 @@ This dynamic leads to format ossification: datasets continue to be produced usin
 
 But what would be the solution for this combinatorial integration burden? An abstraction layer between storage formats and processing systems would reduce the $N \times M$ problem to $N + M$. Each system implements the interface once, and each format provides a single implementation against it. Gienieczko et al. (2025) propose exactly this and present AnyBlox as their realization.
 
+\section{AnyBlox}
+
+A future-proof data access solution must satisfy two conceptual requirements simultaneously. First, it must introduce an abstraction layer that decouples format internals from processing systems and system internals from decoders, thereby reducing the $N \times M$ integration burden to $N + M$. Second, this abstraction must preserve direct file access, since data lakes and shared storage environments require systems to read data directly from object stores without routing it through intermediaries. These two goals are in tension: an abstraction layer must be located somewhere, and every candidate location either breaks direct access or reintroduces format-specific coupling.
+
+Existing approaches each resolve this tension in favor of one side. Native integration preserves direct file access and achieves the best performance through tight coupling with host internals, but requires a separate decoder implementation per format per system, reproducing the $N \times M$ problem. Extension mechanisms reduce the per-format implementation effort somewhat, but each host exposes its own extension API, so a decoder written for system A cannot be reused in system B without a near-complete rewrite. Isolated extensions — such as containerized user-defined functions studied by Saur et al. or the cloud-side UDF mechanisms of Snowflake and Amazon Redshift — provide both isolation and portability, but introduce a data transfer bottleneck between the host and the isolated decoder process. Gienieczko et al. (2025) quantify this cost for run-length encoding: while the decoder itself processes data at 6.5 GB/s, the transfer to the isolated process via Arrow Flight is limited to 1.5 GB/s, causing the transfer to account for approximately 80\% of total runtime.
+
+Given these constraints, Gienieczko et al. (2025) argue that there is only one location for the decoder that satisfies both requirements: inside the data file itself. Packaging the decoder with the data eliminates the transfer bottleneck, since decoder and data reside in the same address space, while the abstraction is preserved because the host need not implement any format-specific logic. This is the core idea behind self-decoding data and the design premise of AnyBlox.
+
 \balance
 \bibliographystyle{ACM-Reference-Format}
 \bibliography{anyblox}
