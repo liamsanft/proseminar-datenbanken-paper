@@ -6,7 +6,7 @@
 
 \begin{document}
 
-\title{AnyBlox}
+\title{AnyBlox: Decoupling Storage Formats from Data Processing Systems}
 
 \author{Liam Sanft}
 \email{liam.sanft@mailbox.tu-dresden.de}
@@ -32,6 +32,14 @@ However, the volume and variety of data collected has grown drastically. Data ar
 Independently, research in data compression and encoding continues to produce formats that outperform established standards in storage efficiency and query throughput. These advances rarely reach production systems, however, because each system must independently implement support for every format it wishes to read \cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
 Both trends converge on the same structural problem. Codd's principle of physical data independence \cite{coddRelationalModelData1970}, which assumes that a system controls its own storage format and shields applications from its physical details, no longer holds in a shared storage layer. In a shared storage layer, this assumption no longer holds. The format is determined by whoever produced the data. Every system that wants to read a given format must implement its own decoder. With $N$ systems and $M$ formats in active use, this results in $N \times M$ independent implementations to develop and maintain \cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+
+This results in higher implementation cost and maintenance effort, and simultaneously increases the risk of security vulnerabilities, as each implementation may contain bugs, as illustrated by a high-severity vulnerability in PostgreSQL's \cite{groupPostgreSQL2026} JSON support that went undetected for over five years \cite{NVDCVE201715098}. This initial hurdle discourages systems from supporting new formats altogether.
+
+The consequence is a self-reinforcing cycle: a new format is not adopted by systems because its user base is too small to justify the implementation effort, yet its user base remains small precisely because it is not widely supported. Gienieczko et al. (2025) identify this as a core structural problem: an encoding must be popular enough to justify the cost of support, but will not gain popularity without being widely supported.
+
+This dynamic leads to format ossification: datasets continue to be produced using outdated format specifications solely to maintain compatibility with existing readers, even when more efficient encodings are available \cite{kuiperQueryEnginesGatekeepers2025}. Evolution of a format is practically prevented, because any change risks breaking compatibility with the large number of systems that have independently implemented the old specification \cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+
+But what would be the solution for this combinatorial integration burden? An abstraction layer between storage formats and processing systems would reduce the $N \times M$ problem to $N + M$. Each system implements the interface once, and each format provides a single implementation against it. Gienieczko et al. (2025) propose exactly this and present AnyBlox as their realization.
 
 \balance
 \bibliographystyle{ACM-Reference-Format}
