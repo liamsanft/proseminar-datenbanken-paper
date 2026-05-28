@@ -62,6 +62,22 @@
   file = {C:\Users\Liam Sanft\Zotero\storage\66CR9ZGQ\www.postgresql.org.html}
 }
 
+@article{haasBringingWebSpeed2017,
+  title = {Bringing the Web up to Speed with {{WebAssembly}}},
+  author = {Haas, Andreas and Rossberg, Andreas and Schuff, Derek L. and Titzer, Ben L. and Holman, Michael and Gohman, Dan and Wagner, Luke and Zakai, Alon and Bastien, {\relax JF}},
+  year = 2017,
+  month = jun,
+  journal = {SIGPLAN Not.},
+  volume = {52},
+  number = {6},
+  pages = {185--200},
+  issn = {0362-1340},
+  doi = {10.1145/3140587.3062363},
+  urldate = {2026-05-28},
+  abstract = {The maturation of the Web platform has given rise to sophisticated and demanding Web applications such as interactive 3D visualization, audio and video software, and games. With that, efficiency and security of code on the Web has become more important than ever. Yet JavaScript as the only built-in language of the Web is not well-equipped to meet these requirements, especially as a compilation target.  Engineers from the four major browser vendors have risen to the challenge and collaboratively designed a portable low-level bytecode called WebAssembly. It offers compact representation, efficient validation and compilation, and safe low to no-overhead execution. Rather than committing to a specific programming model, WebAssembly is an abstraction over modern hardware, making it language-, hardware-, and platform-independent, with use cases beyond just the Web. WebAssembly has been designed with a formal semantics from the start. We describe the motivation, design and formal semantics of WebAssembly and provide some preliminary experience with implementations.},
+  file = {C:\Users\Liam Sanft\Zotero\storage\M8P262A5\Haas et al. - 2017 - Bringing the web up to speed with WebAssembly.pdf}
+}
+
 @misc{IntroductionApacheArrow,
   title = {Introduction --- {{Apache Arrow}} V24.0.0},
   urldate = {2026-05-10},
@@ -121,6 +137,24 @@
   file = {C:\Users\Liam Sanft\Zotero\storage\XDGQ95LL\parquet.apache.org.html}
 }
 
+@article{saurContainerizedExecutionUDFs2022a,
+  title = {Containerized Execution of {{UDFs}}: An Experimental Evaluation},
+  shorttitle = {Containerized Execution of {{UDFs}}},
+  author = {Saur, Karla and Mirmira, Tara and Karanasos, Konstantinos and {Camacho-Rodr{\'i}guez}, Jes{\'u}s},
+  year = 2022,
+  month = jul,
+  journal = {Proceedings of the VLDB Endowment},
+  volume = {15},
+  number = {11},
+  pages = {3158--3171},
+  issn = {2150-8097},
+  doi = {10.14778/3551793.3551860},
+  urldate = {2026-05-28},
+  abstract = {User-defined functions (UDFs) have long been used as the de facto way to extend the capabilities of data management systems. However, they are restricted to the specificities of each DBMS, and recent demands for advanced analytics have increased the need for complex UDFs that may require execution of arbitrary computation written in any programming language, management of library dependencies, portability across environments and engines, and resource isolation. These requirements go beyond what traditional UDFs were designed for, and have given rise to containerized UDFs that enable encapsulation and portability. However, this approach is nascent and can result in significant performance penalties and usability issues. In this paper, we present the first study that spans all stages of containerized UDFs' life cycle, performance bottlenecks in their execution, and extensibility to support different engines.},
+  langid = {english},
+  file = {C:\Users\Liam Sanft\Zotero\storage\63I53XHT\Saur et al. - 2022 - Containerized execution of UDFs an experimental evaluation.pdf}
+}
+
 @book{silberschatzDatabaseSystemConcepts2020,
   title = {Database System Concepts},
   author = {Silberschatz, Abraham and Korth, Henry F. and Sudarshan, S.},
@@ -133,6 +167,23 @@
   lccn = {QA76.9.D3 S5637 2020},
   keywords = {Database management},
   file = {C:\Users\Liam Sanft\Zotero\storage\JULQAESB\Silberschatz et al. - 2020 - Database system concepts.pdf}
+}
+
+@inproceedings{wattMechanisingVerifyingWebAssembly2018,
+  title = {Mechanising and Verifying the {{WebAssembly}} Specification},
+  booktitle = {Proceedings of the 7th {{ACM SIGPLAN International Conference}} on {{Certified Programs}} and {{Proofs}}},
+  author = {Watt, Conrad},
+  year = 2018,
+  month = jan,
+  series = {{{CPP}} 2018},
+  pages = {53--65},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  doi = {10.1145/3167082},
+  urldate = {2026-05-28},
+  abstract = {WebAssembly is a new low-level language currently being implemented in all major web browsers. It is designed to become the universal compilation target for the web, obsoleting existing solutions in this area, such as asm.js and Native Client. The WebAssembly working group has incorporated formal techniques into the development of the language, but their efforts so far have focussed on pen and paper formal specification.We present a mechanised Isabelle specification for the WebAssembly language, together with a verified executable interpreter and type checker. Moreover, we present a fully mechanised proof of the soundness of the WebAssembly type system, and detail how our work on this proof has exposed several issues with the official WebAssembly specification, influencing its development. Finally, we give a brief account of our efforts in performing differential fuzzing of our interpreter against industry implementations.},
+  isbn = {978-1-4503-5586-5},
+  file = {C:\Users\Liam Sanft\Zotero\storage\5RRM42KW\Watt - 2018 - Mechanising and verifying the WebAssembly specification.pdf}
 }
 
 @misc{WebAssembly,
