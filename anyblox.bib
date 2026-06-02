@@ -1,10 +1,30 @@
+@misc{ApacheArrow,
+  title = {Apache {{Arrow}}},
+  author = {{Apache Software Foundation}},
+  journal = {Apache Arrow},
+  urldate = {2026-06-02},
+  abstract = {The universal columnar format and multi-language toolbox for fast data interchange and in-memory analytics},
+  howpublished = {https://arrow.apache.org/},
+  langid = {american},
+  file = {C:\Users\Liam Sanft\Zotero\storage\5X9ABHAR\arrow.apache.org.html}
+}
+
 @misc{ApacheORCHighPerformance,
   title = {Apache {{ORC}}},
-  author = {Apache Software Foundation},
+  author = {{Apache Software Foundation}},
   year = 2013,
   urldate = {2026-05-21},
   howpublished = {https://orc.apache.org/},
   file = {C:\Users\Liam Sanft\Zotero\storage\HTXMM5QW\orc.apache.org.html}
+}
+
+@misc{ApacheSpark,
+  title = {Apache {{Spark}}},
+  author = {{Apache Software Foundation}},
+  year = 2013,
+  urldate = {2026-06-02},
+  howpublished = {https://spark.apache.org/},
+  file = {C:\Users\Liam Sanft\Zotero\storage\3288RM2K\spark.apache.org.html}
 }
 
 @article{armbrustLakehouseNewGeneration2021,
@@ -85,6 +105,23 @@
   file = {C:\Users\Liam Sanft\Zotero\storage\95WGL6BL\Intro.html}
 }
 
+@article{kerstenEverythingYouAlways2018,
+  title = {Everything You Always Wanted to Know about Compiled and Vectorized Queries but Were Afraid to Ask},
+  author = {Kersten, Timo and Leis, Viktor and Kemper, Alfons and Neumann, Thomas and Pavlo, Andrew and Boncz, Peter},
+  year = 2018,
+  month = sep,
+  journal = {Proceedings of the VLDB Endowment},
+  volume = {11},
+  number = {13},
+  pages = {2209--2222},
+  issn = {21508097},
+  doi = {10.14778/3275366.3275370},
+  urldate = {2026-06-01},
+  abstract = {The query engines of most modern database systems are either based on vectorization or data-centric code generation. These two state-of-the-art query processing paradigms are fundamentally different in terms of system structure and query execution code. Both paradigms were used to build fast systems. However, until today it is not clear which paradigm yields faster query execution, as many implementation-specific choices obstruct a direct comparison of architectures. In this paper, we experimentally compare the two models by implementing both within the same test system. This allows us to use for both models the same query processing algorithms, the same data structures, and the same parallelization framework to ultimately create an apples-to-apples comparison. We find that both are efficient, but have different strengths and weaknesses. Vectorization is better at hiding cache miss latency, whereas data-centric compilation requires fewer CPU instructions, which benefits cacheresident workloads. Besides raw, single-threaded performance, we also investigate SIMD as well as multi-core parallelization and different hardware architectures. Finally, we analyze qualitative differences as a guide for system architects.},
+  langid = {english},
+  file = {C:\Users\Liam Sanft\Zotero\storage\K9CNLPBF\Kersten et al. - 2018 - Everything you always wanted to know about compiled and vectorized queries but were afraid to ask.pdf}
+}
+
 @misc{kuiperQueryEnginesGatekeepers2025,
   title = {Query {{Engines}}: {{Gatekeepers}} of the {{Parquet File Format}}},
   shorttitle = {Query {{Engines}}},
@@ -97,6 +134,24 @@
   howpublished = {https://duckdb.org/2025/01/22/parquet-encodings.html},
   langid = {english},
   file = {C:\Users\Liam Sanft\Zotero\storage\78CTRQ4U\parquet-encodings.html}
+}
+
+@inproceedings{lambApacheArrowDataFusion2024,
+  title = {Apache {{Arrow DataFusion}}: {{A Fast}}, {{Embeddable}}, {{Modular Analytic Query Engine}}},
+  shorttitle = {Apache {{Arrow DataFusion}}},
+  booktitle = {Companion of the 2024 {{International Conference}} on {{Management}} of {{Data}}},
+  author = {Lamb, Andrew and Shen, Yijie and Heres, Dani{\"e}l and Chakraborty, Jayjeet and Kabak, Mehmet Ozan and Hsieh, Liang-Chi and Sun, Chao},
+  year = 2024,
+  month = jun,
+  series = {{{SIGMOD}} '24},
+  pages = {5--17},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  doi = {10.1145/3626246.3653368},
+  urldate = {2026-06-02},
+  abstract = {Apache Arrow DataFusion is a fast, embeddable, and extensible query engine written in Rust that uses Apache Arrow as its memory model. In this paper we describe the technologies on which it is built, and how it fits in long-term database implementation trends. We then enumerate its features, optimizations, architecture and extension APIs to illustrate the breadth of requirements of modern OLAP engines as well as the interfaces needed by systems built with them. Finally, we demonstrate open standards and extensible design do not preclude state-of-the-art performance using a series of experimental comparisons to DuckDB.  While the individual techniques used in DataFusion have been previously described many times, it differs from other industrial strength engines by providing competitive performance and an open architecture that can be customized using more than 10 major extension APIs. This flexibility has led to use in many commercial and open source databases, machine learning pipelines, and other data-intensive systems. We anticipate that the accessibility and versatility of DataFusion, along with its competitive performance, will further the proliferation of high-performance custom data infrastructures tailored to specific needs assembled from modular components. While the individual techniques used in DataFusion have been previously described many times, it differs from other industrial strength engines by providing competitive performance and an open architecture that can be customized using more than 10 major extension APIs. This flexibility has led to use in many commercial and open source databases, machine learning pipelines, and other data-intensive systems. We anticipate that the accessibility and versatility of DataFusion, along with its competitive performance, will further the proliferation of high-performance custom data infrastructures tailored to specific needs assembled from modular components.},
+  isbn = {979-8-4007-0422-2},
+  file = {C:\Users\Liam Sanft\Zotero\storage\VXDDTUGX\Lamb et al. - 2024 - Apache Arrow DataFusion A Fast, Embeddable, Modular Analytic Query Engine.pdf}
 }
 
 @article{mathisDataLakes2017,
@@ -127,7 +182,7 @@
 
 @misc{Parquet,
   title = {Apache {{Parquet}}},
-  author = {Apache Software Foundation},
+  author = {{Apache Software Foundation}},
   year = 2013,
   journal = {Parquet},
   urldate = {2026-05-21},
@@ -135,6 +190,24 @@
   howpublished = {https://parquet.apache.org/},
   langid = {english},
   file = {C:\Users\Liam Sanft\Zotero\storage\XDGQ95LL\parquet.apache.org.html}
+}
+
+@inproceedings{raasveldtDuckDBEmbeddableAnalytical2019,
+  title = {{{DuckDB}}: An {{Embeddable Analytical Database}}},
+  shorttitle = {{{DuckDB}}},
+  booktitle = {Proceedings of the 2019 {{International Conference}} on {{Management}} of {{Data}}},
+  author = {Raasveldt, Mark and M{\"u}hleisen, Hannes},
+  year = 2019,
+  month = jun,
+  series = {{{SIGMOD}} '19},
+  pages = {1981--1984},
+  publisher = {Association for Computing Machinery},
+  address = {New York, NY, USA},
+  doi = {10.1145/3299869.3320212},
+  urldate = {2026-06-02},
+  abstract = {The immense popularity of SQLite shows that there is a need for unobtrusive in-process data management solutions. However, there is no such system yet geared towards analytical workloads. We demonstrate DuckDB, a novel data management system designed to execute analytical SQL queries while embedded in another process. In our demonstration, we pit DuckDB against other data management solutions to showcase its performance in the embedded analytics scenario. DuckDB is available as Open Source software under a permissive license.},
+  isbn = {978-1-4503-5643-5},
+  file = {C:\Users\Liam Sanft\Zotero\storage\9GGYRWJY\Raasveldt and Mühleisen - 2019 - DuckDB an Embeddable Analytical Database.pdf}
 }
 
 @article{saurContainerizedExecutionUDFs2022a,

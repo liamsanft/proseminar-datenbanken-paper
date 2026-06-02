@@ -1,0 +1,11 @@
+\section{AnyBlox}
+
+A future-proof data access solution must satisfy two conceptual requirements simultaneously. First, it must introduce an abstraction layer that decouples format internals from processing systems and system internals from decoders, thereby reducing the $N \times M$ integration burden to $N + M$. Second, this abstraction must not preclude direct file access, since routing data through an intermediary process introduces transfer overhead that can dominate total runtime. These two goals are in tension: an abstraction layer must be located somewhere, and every candidate location either breaks direct access or reintroduces format-specific coupling~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+
+Existing approaches each resolve this tension in favor of one side. Native integration preserves direct file access and achieves the best performance through tight coupling with host internals, but requires a separate decoder implementation per format per system, thus reproducing the $N \times M$ problem. Extension mechanisms reduce the per-format implementation effort, but each host exposes its own extension API, so a decoder written for system A cannot be reused in system B without a near-complete rewrite. Isolated extensions, such as containerized user-defined functions \cite{saurContainerizedExecutionUDFs2022a} or remote cloud user-defined code execution solutions provide both isolation and portability, but introduce a data transfer bottleneck between the host and the isolated decoder process~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+
+Given these constraints, Gienieczko et al. (2025) argue that there is only one location for the decoder that satisfies both requirements: inside the data file itself. Packaging the decoder with the data eliminates the transfer bottleneck, since decoder and data reside in the same address space, while the abstraction is preserved because the host need not implement any format-specific logic. This is the core idea behind self-decoding data and the design premise of AnyBlox.
+
+\input{sections/wasm}
+
+\input{sections/reading_a_dataset}
