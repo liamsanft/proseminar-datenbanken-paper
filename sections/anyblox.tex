@@ -1,4 +1,4 @@
-\section{AnyBlox}
+\section{Self-Decoding Data: The AnyBlox Design}
 
 A future-proof data access solution must satisfy two conceptual requirements simultaneously. First, it must introduce an abstraction layer that decouples format internals from processing systems and system internals from decoders, thereby reducing the $N \times M$ integration burden to $N + M$. Second, this abstraction must not preclude direct file access, since routing data through an intermediary process introduces transfer overhead that can dominate total runtime. These two goals are in tension: an abstraction layer must be located somewhere, and every candidate location either breaks direct access or reintroduces format-specific coupling~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
