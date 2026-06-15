@@ -6,7 +6,7 @@
   abstract = {The universal columnar format and multi-language toolbox for fast data interchange and in-memory analytics},
   howpublished = {https://arrow.apache.org/},
   langid = {american},
-  file = {C:\Users\Liam Sanft\Zotero\storage\5X9ABHAR\arrow.apache.org.html}
+  file = {C:\Users\Liam\Zotero\storage\5X9ABHAR\arrow.apache.org.html}
 }
 
 @misc{ApacheORCHighPerformance,
@@ -15,7 +15,7 @@
   year = 2013,
   urldate = {2026-05-21},
   howpublished = {https://orc.apache.org/},
-  file = {C:\Users\Liam Sanft\Zotero\storage\HTXMM5QW\orc.apache.org.html}
+  file = {C:\Users\Liam\Zotero\storage\HTXMM5QW\orc.apache.org.html}
 }
 
 @misc{ApacheSpark,
@@ -24,7 +24,7 @@
   year = 2013,
   urldate = {2026-06-02},
   howpublished = {https://spark.apache.org/},
-  file = {C:\Users\Liam Sanft\Zotero\storage\3288RM2K\spark.apache.org.html}
+  file = {C:\Users\Liam\Zotero\storage\3288RM2K\spark.apache.org.html}
 }
 
 @article{armbrustLakehouseNewGeneration2021,
@@ -33,7 +33,25 @@
   year = 2021,
   abstract = {This paper argues that the data warehouse architecture as we know it today will wither in the coming years and be replaced by a new architectural pattern, the Lakehouse, which will (i) be based on open direct-access data formats, such as Apache Parquet, (ii) have firstclass support for machine learning and data science, and (iii) offer state-of-the-art performance. Lakehouses can help address several major challenges with data warehouses, including data staleness, reliability, total cost of ownership, data lock-in, and limited use-case support. We discuss how the industry is already moving toward Lakehouses and how this shift may affect work in data management. We also report results from a Lakehouse system using Parquet that is competitive with popular cloud data warehouses on TPC-DS.},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\AA4665NV\Armbrust et al. - 2021 - Lakehouse A New Generation of Open Platforms that Unify Data Warehousing and Advanced Analytics.pdf}
+  file = {C:\Users\Liam\Zotero\storage\AA4665NV\Armbrust et al. - 2021 - Lakehouse A New Generation of Open Platforms that Unify Data Warehousing and Advanced Analytics.pdf}
+}
+
+@article{bonczFSSTFastRandom2020,
+  title = {{{FSST}}: Fast Random Access String Compression},
+  shorttitle = {{{FSST}}},
+  author = {Boncz, Peter and Neumann, Thomas and Leis, Viktor},
+  year = 2020,
+  month = aug,
+  journal = {Proceedings of the VLDB Endowment},
+  volume = {13},
+  number = {12},
+  pages = {2649--2661},
+  issn = {2150-8097},
+  doi = {10.14778/3407790.3407851},
+  urldate = {2026-06-15},
+  abstract = {Strings are prevalent in real-world data sets. They often occupy a large fraction of the data and are slow to process. In this work, we present Fast Static Symbol Table (FSST), a lightweight compression scheme for strings. On text data, FSST offers decompression and compression speed similar to or better than the best speed-optimized compression methods, such as LZ4, yet offers significantly better compression factors. Moreover, its use of a static symbol table allows random access to individual, compressed strings, enabling lazy decompression and query processing on compressed data. We believe these features will make FSST a valuable piece in the standard compression toolbox.},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\ZEUCAQF4\Boncz et al. - 2020 - FSST fast random access string compression.pdf}
 }
 
 @article{coddRelationalModelData1970,
@@ -49,7 +67,15 @@
   doi = {10.1145/362384.362685},
   urldate = {2026-05-21},
   abstract = {Future users of large data banks must be protected from having to know how the data is organized in the machine (the internal representation). A prompting service which supplies such information is not a satisfactory solution. Activities of users at terminals and most application programs should remain unaffected when the internal representation of data is changed and even when some aspects of the external representation are changed. Changes in data representation will often be needed as a result of changes in query, update, and report traffic and natural growth in the types of stored information.Existing noninferential, formatted data systems provide users with tree-structured files or slightly more general network models of the data. In Section 1, inadequacies of these models are discussed. A model based on n-ary relations, a normal form for data base relations, and the concept of a universal data sublanguage are introduced. In Section 2, certain operations on relations (other than logical inference) are discussed and applied to the problems of redundancy and consistency in the user's model.},
-  file = {C:\Users\Liam Sanft\Zotero\storage\CNKCEK8B\Codd - 1970 - A relational model of data for large shared data banks.pdf}
+  file = {C:\Users\Liam\Zotero\storage\CNKCEK8B\Codd - 1970 - A relational model of data for large shared data banks.pdf}
+}
+
+@article{ghitWhiteboxCompressionLearning,
+  title = {White-Box {{Compression}}: {{Learning}} and {{Exploiting Compact Table Representations}}},
+  author = {Ghit, Bogdan and Tom{\'e}, Diego and Boncz, Peter},
+  abstract = {We formulate a conceptual model for white-box compression, which represents the logical columns in tabular data as an openly defined function over some actually stored physical columns. Each block of data should thus go accompanied by a header that describes this functional mapping. Because these compression functions are openly defined, database systems can exploit them using query optimization and during execution, enabling e.g. better filter predicate pushdown. In addition, we show that white-box compression is able to identify a broad variety of new opportunities for compression, leading to much better compression factors. These opportunities are identified using an automatic learning process that learns the functions from the data. We provide a recursive pattern-driven algorithm for such learning. Finally, we demonstrate the effectiveness of white-box compression on a new benchmark we contribute hereby: the Public BI benchmark provides a rich set of real-world datasets. We believe our basic prototype for white-box compression opens the way for future research into transparent compressed data representations on the one hand and database system architectures that can efficiently exploit these on the other, and should be seen as another step into the direction of data management systems that are self-learning and optimize themselves for the data they are deployed on.},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\R7C7S6VH\Ghit et al. - White-box Compression Learning and Exploiting Compact Table Representations.pdf}
 }
 
 @article{gienieczkoAnyBloxFrameworkSelfDecoding2025,
@@ -67,7 +93,7 @@
   urldate = {2026-04-04},
   abstract = {Research advancements in storage formats continuously produce more e昀케cient encodings and be琀琀er compression rates. Despite this, new formats are not adopted due to high implementation cost and existing formats cannot evolve because they need to maintain compatibility across systems. Can this problem be solved by introducing a new abstraction? We answer a昀케rmatively with AnyBlox, a framework for reading arbitrary datasets using lightweight WebAssembly decoders bundled with the data. By decoupling decoders from both systems and 昀椀le format speci昀椀cations, AnyBlox allows transparent format evolution, instance-optimized encodings, and enables mainstream adoption of research advancements. It integrates seamlessly with modern systems like DuckDB, Spark, and Umbra, while delivering solid performance and security guarantees.},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\MR4726DK\Gienieczko et al. - 2025 - AnyBlox A Framework for Self-Decoding Datasets.pdf}
+  file = {C:\Users\Liam\Zotero\storage\MR4726DK\Gienieczko et al. - 2025 - AnyBlox A Framework for Self-Decoding Datasets.pdf}
 }
 
 @misc{groupPostgreSQL2026,
@@ -79,7 +105,7 @@
   abstract = {The world's most advanced open source database.},
   howpublished = {https://www.postgresql.org/},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\66CR9ZGQ\www.postgresql.org.html}
+  file = {C:\Users\Liam\Zotero\storage\66CR9ZGQ\www.postgresql.org.html}
 }
 
 @article{haasBringingWebSpeed2017,
@@ -95,14 +121,14 @@
   doi = {10.1145/3140587.3062363},
   urldate = {2026-05-28},
   abstract = {The maturation of the Web platform has given rise to sophisticated and demanding Web applications such as interactive 3D visualization, audio and video software, and games. With that, efficiency and security of code on the Web has become more important than ever. Yet JavaScript as the only built-in language of the Web is not well-equipped to meet these requirements, especially as a compilation target.  Engineers from the four major browser vendors have risen to the challenge and collaboratively designed a portable low-level bytecode called WebAssembly. It offers compact representation, efficient validation and compilation, and safe low to no-overhead execution. Rather than committing to a specific programming model, WebAssembly is an abstraction over modern hardware, making it language-, hardware-, and platform-independent, with use cases beyond just the Web. WebAssembly has been designed with a formal semantics from the start. We describe the motivation, design and formal semantics of WebAssembly and provide some preliminary experience with implementations.},
-  file = {C:\Users\Liam Sanft\Zotero\storage\M8P262A5\Haas et al. - 2017 - Bringing the web up to speed with WebAssembly.pdf}
+  file = {C:\Users\Liam\Zotero\storage\M8P262A5\Haas et al. - 2017 - Bringing the web up to speed with WebAssembly.pdf}
 }
 
 @misc{IntroductionApacheArrow,
   title = {Introduction --- {{Apache Arrow}} V24.0.0},
   urldate = {2026-05-10},
   howpublished = {https://arrow.apache.org/docs/format/Intro.html},
-  file = {C:\Users\Liam Sanft\Zotero\storage\95WGL6BL\Intro.html}
+  file = {C:\Users\Liam\Zotero\storage\95WGL6BL\Intro.html}
 }
 
 @article{kerstenEverythingYouAlways2018,
@@ -119,7 +145,7 @@
   urldate = {2026-06-01},
   abstract = {The query engines of most modern database systems are either based on vectorization or data-centric code generation. These two state-of-the-art query processing paradigms are fundamentally different in terms of system structure and query execution code. Both paradigms were used to build fast systems. However, until today it is not clear which paradigm yields faster query execution, as many implementation-specific choices obstruct a direct comparison of architectures. In this paper, we experimentally compare the two models by implementing both within the same test system. This allows us to use for both models the same query processing algorithms, the same data structures, and the same parallelization framework to ultimately create an apples-to-apples comparison. We find that both are efficient, but have different strengths and weaknesses. Vectorization is better at hiding cache miss latency, whereas data-centric compilation requires fewer CPU instructions, which benefits cacheresident workloads. Besides raw, single-threaded performance, we also investigate SIMD as well as multi-core parallelization and different hardware architectures. Finally, we analyze qualitative differences as a guide for system architects.},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\K9CNLPBF\Kersten et al. - 2018 - Everything you always wanted to know about compiled and vectorized queries but were afraid to ask.pdf}
+  file = {C:\Users\Liam\Zotero\storage\K9CNLPBF\Kersten et al. - 2018 - Everything you always wanted to know about compiled and vectorized queries but were afraid to ask.pdf}
 }
 
 @misc{kuiperQueryEnginesGatekeepers2025,
@@ -133,7 +159,7 @@
   abstract = {Mainstream query engines do not support reading newer Parquet encodings, forcing systems like DuckDB to default to writing older encodings, thereby sacrificing compression.},
   howpublished = {https://duckdb.org/2025/01/22/parquet-encodings.html},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\78CTRQ4U\parquet-encodings.html}
+  file = {C:\Users\Liam\Zotero\storage\78CTRQ4U\parquet-encodings.html}
 }
 
 @inproceedings{lambApacheArrowDataFusion2024,
@@ -151,7 +177,7 @@
   urldate = {2026-06-02},
   abstract = {Apache Arrow DataFusion is a fast, embeddable, and extensible query engine written in Rust that uses Apache Arrow as its memory model. In this paper we describe the technologies on which it is built, and how it fits in long-term database implementation trends. We then enumerate its features, optimizations, architecture and extension APIs to illustrate the breadth of requirements of modern OLAP engines as well as the interfaces needed by systems built with them. Finally, we demonstrate open standards and extensible design do not preclude state-of-the-art performance using a series of experimental comparisons to DuckDB.  While the individual techniques used in DataFusion have been previously described many times, it differs from other industrial strength engines by providing competitive performance and an open architecture that can be customized using more than 10 major extension APIs. This flexibility has led to use in many commercial and open source databases, machine learning pipelines, and other data-intensive systems. We anticipate that the accessibility and versatility of DataFusion, along with its competitive performance, will further the proliferation of high-performance custom data infrastructures tailored to specific needs assembled from modular components. While the individual techniques used in DataFusion have been previously described many times, it differs from other industrial strength engines by providing competitive performance and an open architecture that can be customized using more than 10 major extension APIs. This flexibility has led to use in many commercial and open source databases, machine learning pipelines, and other data-intensive systems. We anticipate that the accessibility and versatility of DataFusion, along with its competitive performance, will further the proliferation of high-performance custom data infrastructures tailored to specific needs assembled from modular components.},
   isbn = {979-8-4007-0422-2},
-  file = {C:\Users\Liam Sanft\Zotero\storage\VXDDTUGX\Lamb et al. - 2024 - Apache Arrow DataFusion A Fast, Embeddable, Modular Analytic Query Engine.pdf}
+  file = {C:\Users\Liam\Zotero\storage\VXDDTUGX\Lamb et al. - 2024 - Apache Arrow DataFusion A Fast, Embeddable, Modular Analytic Query Engine.pdf}
 }
 
 @article{mathisDataLakes2017,
@@ -168,7 +194,7 @@
   urldate = {2026-05-10},
   abstract = {By moving data into a centralized, scalable storage location inside an organization -- the data lake -- companies and other institutions aim to discover new information and to generate value from the data. The data lake can help to overcome organizational boundaries and system complexity. However, to generate value from the data, additional techniques, tools, and processes need to be established which help to overcome data integration and other challenges around this approach. Although there is a certain agreed-on notion of the central idea, there is no accepted definition what components or functionality a data lake has or how an architecture looks like. Throughout this article, we will start with the central idea and discuss various related aspects and technologies.},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\XXVC73L8\Mathis - 2017 - Data Lakes.pdf}
+  file = {C:\Users\Liam\Zotero\storage\XXVC73L8\Mathis - 2017 - Data Lakes.pdf}
 }
 
 @misc{NVDCVE201715098,
@@ -177,7 +203,7 @@
   year = 2017,
   urldate = {2026-05-22},
   howpublished = {https://nvd.nist.gov/vuln/detail/CVE-2017-15098},
-  file = {C:\Users\Liam Sanft\Zotero\storage\E38AEGN7\CVE-2017-15098.html}
+  file = {C:\Users\Liam\Zotero\storage\E38AEGN7\CVE-2017-15098.html}
 }
 
 @misc{Parquet,
@@ -189,7 +215,7 @@
   abstract = {Apache Parquet Documentation Releases Apache Parquet is an open source, column-oriented data file format designed for efficient data storage and retrieval. It provides high performance compression and encoding schemes to handle complex data in bulk and is supported in many programming languages and analytics tools.},
   howpublished = {https://parquet.apache.org/},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\XDGQ95LL\parquet.apache.org.html}
+  file = {C:\Users\Liam\Zotero\storage\XDGQ95LL\parquet.apache.org.html}
 }
 
 @inproceedings{raasveldtDuckDBEmbeddableAnalytical2019,
@@ -207,7 +233,7 @@
   urldate = {2026-06-02},
   abstract = {The immense popularity of SQLite shows that there is a need for unobtrusive in-process data management solutions. However, there is no such system yet geared towards analytical workloads. We demonstrate DuckDB, a novel data management system designed to execute analytical SQL queries while embedded in another process. In our demonstration, we pit DuckDB against other data management solutions to showcase its performance in the embedded analytics scenario. DuckDB is available as Open Source software under a permissive license.},
   isbn = {978-1-4503-5643-5},
-  file = {C:\Users\Liam Sanft\Zotero\storage\9GGYRWJY\Raasveldt and Mühleisen - 2019 - DuckDB an Embeddable Analytical Database.pdf}
+  file = {C:\Users\Liam\Zotero\storage\9GGYRWJY\Raasveldt and Mühleisen - 2019 - DuckDB an Embeddable Analytical Database.pdf}
 }
 
 @article{saurContainerizedExecutionUDFs2022a,
@@ -225,7 +251,7 @@
   urldate = {2026-05-28},
   abstract = {User-defined functions (UDFs) have long been used as the de facto way to extend the capabilities of data management systems. However, they are restricted to the specificities of each DBMS, and recent demands for advanced analytics have increased the need for complex UDFs that may require execution of arbitrary computation written in any programming language, management of library dependencies, portability across environments and engines, and resource isolation. These requirements go beyond what traditional UDFs were designed for, and have given rise to containerized UDFs that enable encapsulation and portability. However, this approach is nascent and can result in significant performance penalties and usability issues. In this paper, we present the first study that spans all stages of containerized UDFs' life cycle, performance bottlenecks in their execution, and extensibility to support different engines.},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\63I53XHT\Saur et al. - 2022 - Containerized execution of UDFs an experimental evaluation.pdf}
+  file = {C:\Users\Liam\Zotero\storage\63I53XHT\Saur et al. - 2022 - Containerized execution of UDFs an experimental evaluation.pdf}
 }
 
 @book{silberschatzDatabaseSystemConcepts2020,
@@ -239,7 +265,7 @@
   langid = {english},
   lccn = {QA76.9.D3 S5637 2020},
   keywords = {Database management},
-  file = {C:\Users\Liam Sanft\Zotero\storage\JULQAESB\Silberschatz et al. - 2020 - Database system concepts.pdf}
+  file = {C:\Users\Liam\Zotero\storage\JULQAESB\Silberschatz et al. - 2020 - Database system concepts.pdf}
 }
 
 @inproceedings{wattMechanisingVerifyingWebAssembly2018,
@@ -256,7 +282,7 @@
   urldate = {2026-05-28},
   abstract = {WebAssembly is a new low-level language currently being implemented in all major web browsers. It is designed to become the universal compilation target for the web, obsoleting existing solutions in this area, such as asm.js and Native Client. The WebAssembly working group has incorporated formal techniques into the development of the language, but their efforts so far have focussed on pen and paper formal specification.We present a mechanised Isabelle specification for the WebAssembly language, together with a verified executable interpreter and type checker. Moreover, we present a fully mechanised proof of the soundness of the WebAssembly type system, and detail how our work on this proof has exposed several issues with the official WebAssembly specification, influencing its development. Finally, we give a brief account of our efforts in performing differential fuzzing of our interpreter against industry implementations.},
   isbn = {978-1-4503-5586-5},
-  file = {C:\Users\Liam Sanft\Zotero\storage\5RRM42KW\Watt - 2018 - Mechanising and verifying the WebAssembly specification.pdf}
+  file = {C:\Users\Liam\Zotero\storage\5RRM42KW\Watt - 2018 - Mechanising and verifying the WebAssembly specification.pdf}
 }
 
 @misc{WebAssembly,
@@ -265,5 +291,5 @@
   abstract = {WebAssembly (abbreviated Wasm) is a binary instruction format for a stack-based virtual machine. Wasm is designed as a portable compilation target for programming languages, enabling deployment on the web for client and server applications.},
   howpublished = {https://webassembly.org/},
   langid = {english},
-  file = {C:\Users\Liam Sanft\Zotero\storage\T2J9Q2AY\webassembly.org.html}
+  file = {C:\Users\Liam\Zotero\storage\T2J9Q2AY\webassembly.org.html}
 }
