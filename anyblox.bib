@@ -1,3 +1,40 @@
+@misc{alotaibiQueryOptimizerService2024,
+  title = {Towards {{Query Optimizer}} as a {{Service}} ({{QOaaS}}) in a {{Unified LakeHouse Ecosystem}}: {{Can One QO Rule Them All}}?},
+  shorttitle = {Towards {{Query Optimizer}} as a {{Service}} ({{QOaaS}}) in a {{Unified LakeHouse Ecosystem}}},
+  author = {Alotaibi, Rana and Tian, Yuanyuan and Grafberger, Stefan and {Camacho-Rodr{\'i}guez}, Jes{\'u}s and Bruno, Nicolas and Kroth, Brian and Matusevych, Sergiy and Agrawal, Ashvin and Behera, Mahesh and Gosalia, Ashit and {Galindo-Legaria}, Cesar and Joshi, Milind and Potocnik, Milan and Sezgin, Beysim and Li, Xiaoyu and Curino, Carlo},
+  year = 2024,
+  month = nov,
+  number = {arXiv:2411.13704},
+  eprint = {2411.13704},
+  primaryclass = {cs.DB},
+  publisher = {arXiv},
+  doi = {10.48550/arXiv.2411.13704},
+  urldate = {2026-06-16},
+  abstract = {Customer demand, regulatory pressure, and engineering efficiency are the driving forces behind the industry-wide trend of moving from siloed engines and services that are optimized in isolation to highly integrated solutions. This is confirmed by the wide adoption of open formats, shared component libraries, and the meteoric success of integrated data lake experiences such as Microsoft Fabric. In this paper, we study the implications of this trend to Query Optimizer (QO) and discuss our experience of building Calcite and extending Cascades into QO components of Microsoft SQL Server, Fabric Data Warehouse (DW), and SCOPE. We weigh the pros and cons of a drastic change in direction: moving from bespoke QOs or library-sharing (\`a la Calcite) to rewriting the QO stack and fully embracing Query Optimizer as a Service (QOaaS). We report on some early successes and stumbles as we explore these ideas with prototypes compatible with Fabric DW and Spark. The benefits include centralized workload-level optimizations, multi-engine federation, and accelerated feature creation, but the challenges are equally daunting. We plan to engage CIDR audience in a debate on this exciting topic.},
+  archiveprefix = {arXiv},
+  langid = {english},
+  keywords = {Computer Science - Databases},
+  file = {C:\Users\Liam\Zotero\storage\JNYECLZL\Alotaibi et al. - 2024 - Towards Query Optimizer as a Service (QOaaS) in a Unified LakeHouse Ecosystem Can One QO Rule Them.pdf}
+}
+
+@article{anneserAutoSteerLearnedQuery2023,
+  title = {{{AutoSteer}}: {{Learned Query Optimization}} for {{Any SQL Database}}},
+  shorttitle = {{{AutoSteer}}},
+  author = {Anneser, Christoph and Tatbul, Nesime and Cohen, David and Xu, Zhenggang and Pandian, Prithviraj and Laptev, Nikolay and Marcus, Ryan},
+  year = 2023,
+  month = aug,
+  journal = {Proceedings of the VLDB Endowment},
+  volume = {16},
+  number = {12},
+  pages = {3515--3527},
+  issn = {2150-8097},
+  doi = {10.14778/3611540.3611544},
+  urldate = {2026-06-16},
+  abstract = {This paper presents AutoSteer, a learning-based solution that automatically drives query optimization in any SQL database that exposes tunable optimizer knobs. AutoSteer builds on the Bandit optimizer (Bao) and extends it with new capabilities (e.g., automated hint-set discovery) to minimize integration effort and facilitate usability in both monolithic and disaggregated SQL systems. We successfully applied AutoSteer on PostgreSQL, PrestoDB, SparkSQL, MySQL, and DuckDB \'s five popular open-source database engines with diverse query optimizers. We then conducted a detailed experimental evaluation with public benchmarks (JOB, Stackoverflow, TPC-DS) and a production workload from Meta's PrestoDB deployments. Our evaluation shows that AutoSteer can not only outperform these engines' native query optimizers (e.g., up to 40\% improvements for PrestoDB) but can also match the performance of Bao-for-PostgreSQL with reduced human supervision and increased adaptivity, as it replaces Bao's static, expert-picked hint-sets with those that are automatically discovered. We also provide an open-source implementation of AutoSteer together with a visual tool for interactive use by query optimization experts.},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\BMIHV7JQ\Anneser et al. - 2023 - AutoSteer Learned Query Optimization for Any SQL Database.pdf}
+}
+
 @misc{ApacheArrow,
   title = {Apache {{Arrow}}},
   author = {{Apache Software Foundation}},
@@ -34,6 +71,24 @@
   abstract = {This paper argues that the data warehouse architecture as we know it today will wither in the coming years and be replaced by a new architectural pattern, the Lakehouse, which will (i) be based on open direct-access data formats, such as Apache Parquet, (ii) have firstclass support for machine learning and data science, and (iii) offer state-of-the-art performance. Lakehouses can help address several major challenges with data warehouses, including data staleness, reliability, total cost of ownership, data lock-in, and limited use-case support. We discuss how the industry is already moving toward Lakehouses and how this shift may affect work in data management. We also report results from a Lakehouse system using Parquet that is competitive with popular cloud data warehouses on TPC-DS.},
   langid = {english},
   file = {C:\Users\Liam\Zotero\storage\AA4665NV\Armbrust et al. - 2021 - Lakehouse A New Generation of Open Platforms that Unify Data Warehousing and Advanced Analytics.pdf}
+}
+
+@article{bandleDatabaseTechnologyMasses2021,
+  title = {Database Technology for the Masses: Sub-Operators as First-Class Entities},
+  shorttitle = {Database Technology for the Masses},
+  author = {Bandle, Maximilian and Giceva, Jana},
+  year = 2021,
+  month = jul,
+  journal = {Proceedings of the VLDB Endowment},
+  volume = {14},
+  number = {11},
+  pages = {2483--2490},
+  issn = {2150-8097},
+  doi = {10.14778/3476249.3476296},
+  urldate = {2026-06-16},
+  abstract = {A wealth of technology has evolved around relational databases over decades that has been successfully tried and tested in many settings and use cases. Yet, the majority of it remains overlooked in the pursuit of performance (e.g., NoSQL) or new functionality (e.g., graph data or machine learning). In this paper, we argue that a wide range of techniques readily available in databases are crucial to tackling the challenges the IT industry faces in terms of hardware trends management, growing workloads, and the overall complexity of a rapidly changing application and platform landscape.},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\VSHGCKCQ\Bandle and Giceva - 2021 - Database technology for the masses sub-operators as first-class entities.pdf}
 }
 
 @article{bonczFSSTFastRandom2020,
@@ -124,11 +179,35 @@
   file = {C:\Users\Liam\Zotero\storage\M8P262A5\Haas et al. - 2017 - Bringing the web up to speed with WebAssembly.pdf}
 }
 
+@misc{HomeSubstraitCrossLanguage,
+  title = {Home - {{Substrait}}: {{Cross-Language Serialization}} for {{Relational Algebra}}},
+  urldate = {2026-06-15},
+  howpublished = {https://substrait.io/},
+  file = {C:\Users\Liam\Zotero\storage\G7CIDBV9\substrait.io.html}
+}
+
 @misc{IntroductionApacheArrow,
   title = {Introduction --- {{Apache Arrow}} V24.0.0},
   urldate = {2026-05-10},
   howpublished = {https://arrow.apache.org/docs/format/Intro.html},
   file = {C:\Users\Liam\Zotero\storage\95WGL6BL\Intro.html}
+}
+
+@article{jungmairDeclarativeSubOperatorsUniversal2023,
+  title = {Declarative {{Sub-Operators}} for {{Universal Data Processing}}},
+  author = {Jungmair, Michael and Giceva, Jana},
+  year = 2023,
+  month = jul,
+  journal = {Proceedings of the VLDB Endowment},
+  volume = {16},
+  number = {11},
+  pages = {3461--3474},
+  issn = {2150-8097},
+  doi = {10.14778/3611479.3611539},
+  urldate = {2026-06-16},
+  abstract = {Data processing systems face the challenge of supporting increasingly diverse workloads efficiently. At the same time, they are already bloated with internal complexity, and it is not clear how new hardware can be supported sustainably.},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\MWARTR7C\Jungmair and Giceva - 2023 - Declarative Sub-Operators for Universal Data Processing.pdf}
 }
 
 @article{kerstenEverythingYouAlways2018,
@@ -180,6 +259,23 @@
   file = {C:\Users\Liam\Zotero\storage\VXDDTUGX\Lamb et al. - 2024 - Apache Arrow DataFusion A Fast, Embeddable, Modular Analytic Query Engine.pdf}
 }
 
+@inproceedings{lattnerLLVMCompilationFramework2004,
+  title = {{{LLVM}}: {{A}} Compilation Framework for Lifelong Program Analysis \& Transformation},
+  shorttitle = {{{LLVM}}},
+  booktitle = {International {{Symposium}} on {{Code Generation}} and {{Optimization}}, 2004. {{CGO}} 2004.},
+  author = {Lattner, C. and Adve, V.},
+  year = 2004,
+  pages = {75--86},
+  publisher = {IEEE},
+  address = {San Jose, CA, USA},
+  doi = {10.1109/CGO.2004.1281665},
+  urldate = {2026-06-16},
+  abstract = {This paper describes LLVM (Low Level Virtual Machine), a compiler framework designed to support transparent, lifelong program analysis and transformation for arbitrary programs, by providing high-level information to compiler transformations at compile-time, link-time, run-time, and in idle time between runs. LLVM defines a common, low-level code representation in Static Single Assignment (SSA) form, with several novel features: a simple, language-independent type-system that exposes the primitives commonly used to implement high-level language features; an instruction for typed address arithmetic; and a simple mechanism that can be used to implement the exception handling features of high-level languages (and setjmp/longjmp in C) uniformly and efficiently. The LLVM compiler framework and code representation together provide a combination of key capabilities that are important for practical, lifelong analysis and transformation of programs. To our knowledge, no existing compilation approach provides all these capabilities. We describe the design of the LLVM representation and compiler framework, and evaluate the design in three ways: (a) the size and effectiveness of the representation, including the type information it provides; (b) compiler performance for several interprocedural problems; and (c) illustrative examples of the benefits LLVM provides for several challenging compiler problems.},
+  isbn = {978-0-7695-2102-2},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\MH4BJG52\Lattner and Adve - 2004 - LLVM A compilation framework for lifelong program analysis & transformation.pdf}
+}
+
 @article{mathisDataLakes2017,
   title = {Data {{Lakes}}},
   author = {Mathis, Christian},
@@ -195,6 +291,14 @@
   abstract = {By moving data into a centralized, scalable storage location inside an organization -- the data lake -- companies and other institutions aim to discover new information and to generate value from the data. The data lake can help to overcome organizational boundaries and system complexity. However, to generate value from the data, additional techniques, tools, and processes need to be established which help to overcome data integration and other challenges around this approach. Although there is a certain agreed-on notion of the central idea, there is no accepted definition what components or functionality a data lake has or how an architecture looks like. Throughout this article, we will start with the central idea and discuss various related aspects and technologies.},
   langid = {english},
   file = {C:\Users\Liam\Zotero\storage\XXVC73L8\Mathis - 2017 - Data Lakes.pdf}
+}
+
+@article{neumannUmbraDiskBasedSystem,
+  title = {Umbra: {{A Disk-Based System}} with {{In-Memory Performance}}},
+  author = {Neumann, Thomas and Freitag, Michael},
+  abstract = {The increases in main-memory sizes over the last decade have made pure in-memory database systems feasible, and in-memory systems offer unprecedented performance. However, DRAM is still relatively expensive, and the growth of main-memory sizes has slowed down. In contrast, the prices for SSDs have fallen substantially in the last years, and their read bandwidth has increased to gigabytes per second. This makes it attractive to combine a large in-memory buffer with fast SSDs as storage devices, combining the excellent performance for the in-memory working set with the scalability of a disk-based system.},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\UG4TD7UE\p29-neumann-cidr20.pdf}
 }
 
 @misc{NVDCVE201715098,
@@ -266,6 +370,24 @@
   lccn = {QA76.9.D3 S5637 2020},
   keywords = {Database management},
   file = {C:\Users\Liam\Zotero\storage\JULQAESB\Silberschatz et al. - 2020 - Database system concepts.pdf}
+}
+
+@inproceedings{tsalapatisMemSnapMCheckpointsData2024,
+  title = {{{MemSnap $\mu$Checkpoints}}: {{A Data Single Level Store}} for {{Fearless Persistence}}},
+  shorttitle = {{{MemSnap $\mu$Checkpoints}}},
+  booktitle = {Proceedings of the 29th {{ACM International Conference}} on {{Architectural Support}} for {{Programming Languages}} and {{Operating Systems}}, {{Volume}} 3},
+  author = {Tsalapatis, Emil and Hancock, Ryan and Hossain, Rakeeb and Mashtizadeh, Ali Jos{\'e}},
+  year = 2024,
+  month = apr,
+  pages = {622--638},
+  publisher = {ACM},
+  address = {La Jolla CA USA},
+  doi = {10.1145/3620666.3651334},
+  urldate = {2026-06-16},
+  abstract = {Single level stores (SLSes) have recently resurfaced as a system for persisting application data. SLSes like EROS, Aurora, and TreeSLS use application checkpointing to replace filebased APIs. These systems checkpoint at a coarse granularity and must be combined with file persistence mechanisms like WALs, undermining the benefits of their SLS design.},
+  isbn = {979-8-4007-0386-7},
+  langid = {english},
+  file = {C:\Users\Liam\Zotero\storage\L9D978AP\Tsalapatis et al. - 2024 - MemSnap μCheckpoints A Data Single Level Store for Fearless Persistence.pdf}
 }
 
 @inproceedings{wattMechanisingVerifyingWebAssembly2018,
