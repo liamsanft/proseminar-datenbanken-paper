@@ -1,11 +1,12 @@
 \section{Discussion}
 
-The preceding sections introduced the AnyBlox architecture and its decoding model. Whether this design is practical depends on two questions:
+The preceding sections introduced the AnyBlox architecture and its decoding model. Whether this design is practical depends on three questions:
 \begin{enumerate}
     \item What overhead does the Wasm sandbox introduce?
+    \item How much effort does integrating the framework into an engine require?
     \item Where does the approach reach its limits?
 \end{enumerate}
-Gienieczko et al. (2025) report benchmarks that cover both favorable and unfavorable cases for AnyBlox.
+Gienieczko et al. (2025) report benchmarks and integration experience that cover both favorable and unfavorable cases for AnyBlox.
 
 \subsection{Performance Evaluation}
 
@@ -30,6 +31,28 @@ The benchmark yields two results, summarized in Figure~\ref{fig:tpch-latency}. B
 The microbenchmarks show where the overhead of the sandbox becomes visible. FSST~\cite{bonczFSSTFastRandom2020} is a lightweight string compression scheme. Gienieczko et al. (2025) benchmark the decoding of three FSST-compressed string columns from the Taxpayer dataset of the Public BI Benchmark~\cite{ghitWhiteboxCompressionLearning}. The 1.7\,GB AnyBlox file expands into 2.5\,GB of Arrow batches in memory. In this isolated scenario, the Wasm Decoder is over 43\% slower than the same decoder compiled natively. The cause is architectural rather than incidental: the FSST decoder relies heavily on 8-byte reads, but Wasm uses a 32-bit address space by default, so each 8-byte read is emulated with two 4-byte reads. The authors describe this as a fundamental limitation of the current design. The 64-bit Wasm proposal would remove it, but it is incompatible with the software fault isolation mechanism on which AnyBlox's security guarantees rest, since that mechanism assumes a Decoder can address at most 8\,GiB of memory~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
 Taken together, the benchmarks place the cost of the sandbox in perspective, though the evidence differs in strength across the two cases. For a complex decoder such as Vortex, the overhead is measured directly: in the end-to-end DataFusion workload it stays within measurement noise, and the more efficient encoding lets AnyBlox outperform the native Parquet reader. For the FSST worst case, the slowdown appears clearly in the microbenchmark, but its effect on full queries is not measured directly. Since the scan accounts for only about a fifth of processing time in the DataFusion workload, a decoding slowdown can affect only that share of the runtime. The microbenchmark therefore isolates the decoder under the conditions least favorable to it.
+
+\subsection{Integration Effort}
+
+The second claim AnyBlox makes is portability, meaning an engine can support the framework without a large implementation effort. Gienieczko et al. (2025) integrated AnyBlox into four systems spanning different execution paradigms (Umbra~\cite{neumannUmbraDiskBasedSystem}, DuckDB, DataFusion and Spark), all done by a single programmer with no prior experience in any of the host codebases. Table~\ref{tab:integration} lists the resulting effort. No integration required more than 1305 lines of code, and each one only added a new scan operator while leaving the rest of the engine, namely its optimizer, operators and execution layer, unchanged~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+
+\begin{table}
+    \centering
+    \caption{Effort of integrating AnyBlox into each host system. Data source:~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.}
+    \label{tab:integration}
+    \begin{tabular}{lrr}
+        \toprule
+        System     & Lines of code & Person-days \\
+        \midrule
+        DataFusion & 461           & 2           \\
+        DuckDB     & 586           & 3           \\
+        Spark      & 756           & 15          \\
+        Umbra      & 1305          & 10          \\
+        \bottomrule
+    \end{tabular}
+\end{table}
+
+The authors caution that lines of code and integration time are not rigorous measures of software complexity, so these figures indicate rather than prove that the framework ports easily. With that caveat, they are the empirical counterpart to the $N \times M$ argument: a one-time integration lets an engine read any format providing a decoder.
 
 \subsection{Limitations}
 \label{sec:limitations}
