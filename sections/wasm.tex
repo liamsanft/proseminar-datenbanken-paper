@@ -2,20 +2,20 @@
 
 A self-decoding dataset requires a decoder runtime that satisfies four criteria: \textbf{Portability}, \textbf{Security}, \textbf{Performance} and \textbf{Extensibility}.
 
-Gienieczko et al.\ (2025) identify WebAssembly (Wasm) as a runtime that satisfies all four simultaneously. Wasm is a portable low-level bytecode and virtual machine specification, designed as an abstraction over modern hardware rather than a commitment to any specific programming model, making it language-, hardware-, and platform-independent~\cite{haasBringingWebSpeed2017}.
+Building on these criteria, Gienieczko et al.\ (2025) identify WebAssembly (Wasm) as a runtime that satisfies all four simultaneously. Wasm is a portable low-level bytecode and virtual machine specification, designed as an abstraction over modern hardware rather than a commitment to any specific programming model, making it language-, hardware-, and platform-independent~\cite{haasBringingWebSpeed2017}.
 
 \subsubsection{Portability}
 
-A decoder implemented in Wasm runs on a wide variety of host architectures (e.g. browsers, mobile devices, embedded, and server workstations)~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}. For AnyBlox, this means a format author writes and compiles a decoder once, and any host can execute it via \texttt{libanyblox}, independent of the underlying hardware or operating system.
+A decoder implemented in Wasm can operate across a broad set of host architectures, including browsers, mobile devices, embedded systems, and server workstations. With AnyBlox, a format author can write and compile a decoder once and execute it on any host through \texttt{libanyblox}, regardless of the underlying hardware or operating system~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
 \subsubsection{Security}
 
-The WebAssembly specification provides machine-verifiable memory safety and isolation guarantees~\cite{wattMechanisingVerifyingWebAssembly2018}. AnyBlox reinforces this by being implemented predominantly in safe Rust, guaranteeing memory and thread safety. All unsafe code is confined to a single module handling Wasm memory maps, keeping it easily auditable~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+The WebAssembly specification provides machine-verifiable guarantees of memory safety and isolation~\cite{wattMechanisingVerifyingWebAssembly2018}. Building on this foundation, AnyBlox reinforces these guarantees by being implemented predominantly in safe Rust, ensuring memory and thread safety. Furthermore, all unsafe code is confined to a single module that handles Wasm memory maps, making it straightforward to inspect~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
 \subsubsection{Performance}
 
-Wasm is JIT-compiled to the host's native instruction set at runtime, making near-native performance attainable. Additionally, AnyBlox avoids unnecessary data copying through a custom memory management scheme. Gienieczko et al.\ (2025) note that AnyBlox can passively benefit from future improvements in Wasm compiler technology, since all JIT and sandboxing details are encapsulated in \texttt{libanyblox} and not exposed in the public API~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+Wasm is JIT-compiled to the host's native instruction set at runtime, enabling near-native performance. Additionally, AnyBlox avoids unnecessary data copying through a custom memory management scheme, which improves efficiency. As observed by Gienieczko et al.\ (2025), AnyBlox further benefits by passively inheriting advances in Wasm compiler technology, since all JIT and sandboxing details are encapsulated within \texttt{libanyblox} and not exposed in the public API~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
 \subsubsection{Extensibility}
 
-Since most general-purpose programming languages provide a Wasm toolchain, format authors can implement decoders in their language of choice without restrictions. The main practical obstacle is SIMD instructions: converting platform-specific SIMD intrinsics to Wasm's instruction set requires manual developer effort. However, since Wasm defines SIMD at the bytecode level, the resulting modules remain fully portable across architectures~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+Finally, in terms of extensibility, since most general-purpose programming languages provide a Wasm toolchain, format authors can implement decoders in their language of choice. The main practical obstacle is SIMD instructions: converting platform-specific SIMD intrinsics to Wasm's instruction set requires manual developer effort. However, since Wasm defines SIMD at the bytecode level, the resulting modules remain fully portable across architectures~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
