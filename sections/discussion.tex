@@ -12,19 +12,21 @@ Gienieczko et al.\ (2025) report benchmarks and integration experience that cove
 
 Sandboxing a decoder inside Wasm adds a layer of indirection between the data and the query engine. Gienieczko et al.\ (2025) measure the resulting overhead directly. They run TPC-H at scale factor 20 in DataFusion~\cite{lambApacheArrowDataFusion2024} and vary the representation of \texttt{lineitem}, the largest table in the benchmark and therefore the one whose scan dominates the runtime, across three configurations:
 \begin{description}
-    \item[Parquet] read by DataFusion's native reader with Snappy\footnote{Snappy, \url{https://github.com/google/snappy/} (accessed: June 15, 2026)} compression;
+    \item[Parquet] read by DataFusion's native reader with Snappy\footnote{Snappy, \url{https://github.com/google/snappy} (accessed: June 15, 2026)} compression;
     \item[AnyBlox Vortex] a Vortex file decoded inside the AnyBlox sandbox;
     \item[Native Vortex] the same Vortex decoder compiled natively without any sandbox.
 \end{description}
 
 \begin{figure}
-    \centering
     \includegraphics[width=\columnwidth]{figures/benchmark_figure.png}
+
+    \Description{Bar chart showing total query latency for three configurations: Native Vortex (104\,s, 19\,\% scan share), AnyBlox Vortex (102\,s, 20\,\% scan share), and Parquet (158\,s, 46\,\% scan share). Scan time is shown in dark, operator time in light. Native Vortex and AnyBlox Vortex are nearly identical in total latency; Parquet has roughly 50\,\% higher total latency with a substantially larger scan share.}
+
     \caption{Total query latency (median, summed over 16 TPC-H queries at scale factor 20) in DataFusion, split into scan time (dark) and operator time (light). Percentages denote the scan share of total latency. Data source:~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.}
     \label{fig:tpch-latency}
 \end{figure}
 
-The first variant isolates the effect of the format; the latter two isolate the effect of the sandbox alone. Predicate pushdown was disabled throughout, so the numbers reflect scan and operator cost only. Vortex\footnote{Vortex, \url{https://vortex.dev/} (accessed: June 15, 2026)} is a recent columnar format.
+The first variant isolates the effect of the format; the latter two isolate the effect of the sandbox alone. Predicate pushdown was disabled throughout, so the numbers reflect scan and operator cost only. Vortex\footnote{Vortex, \url{https://vortex.dev} (accessed: June 15, 2026)} is a recent columnar format.
 
 The benchmark yields two results, summarized in Figure~\ref{fig:tpch-latency}. Both Vortex variants achieve over $2\times$ lower scan latency than Parquet while also reaching a better compression rate. For the Parquet reader, decoding accounts for nearly half of the processing time, while Vortex spends around 80\% of its processing time in relational operators. The overhead of the sandbox itself is small. Sandboxed Vortex decoding adds 5\% to the scan latency over native decoding, which amounts to a 1\% increase in overall query latency and which the authors report as within measurement noise. Across this end-to-end workload, the cost of the sandbox is therefore negligible, and AnyBlox provides DataFusion with an encoding that outperforms its own native Parquet reader~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
@@ -59,7 +61,7 @@ The authors caution that lines of code and integration time are not rigorous mea
 
 Two of AnyBlox's limitations follow from the design itself rather than from the current implementation. The first concerns predicate pushdown. Predicate pushdown evaluates filter conditions during the scan phase, so that rows failing a condition are discarded before they are decoded and passed to operators such as aggregation or joins. Decoding is computationally expensive, so prior filtering avoids processing data that would be discarded anyway~\cite{silberschatzDatabaseSystemConcepts2020}.
 
-Standalone AnyBlox provides no predicate pushdown API for row filtering. It supports projection pushdown, which restricts a scan to the requested columns, but not the filtering of individual rows. The reason is a deliberate design choice: filtering individual rows in a format-agnostic framework requires an equally format-agnostic and system-independent predicate expression format, which AnyBlox does not define. This reflects the same design philosophy visible elsewhere in the framework, that statistics and indexes should be decoupled from the storage format and managed by the query engine or a dedicated acceleration layer. The authors point to Substrait\footnote{Substrait, \url{https://substrait.io/} (accessed: June 15, 2026)} as ongoing industry work toward a standardized predicate expression format, which could close this gap in a future revision~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+Standalone AnyBlox provides no predicate pushdown API for row filtering. It supports projection pushdown, which restricts a scan to the requested columns, but not the filtering of individual rows. The reason is a deliberate design choice: filtering individual rows in a format-agnostic framework requires an equally format-agnostic and system-independent predicate expression format, which AnyBlox does not define. This reflects the same design philosophy visible elsewhere in the framework, that statistics and indexes should be decoupled from the storage format and managed by the query engine or a dedicated acceleration layer. The authors point to Substrait\footnote{Substrait, \url{https://substrait.io} (accessed: June 15, 2026)} as ongoing industry work toward a standardized predicate expression format, which could close this gap in a future revision~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
 This limitation is confined to standalone use. When an AnyBlox encoding is embedded into a host format such as Parquet at the row-group or column level, the host's existing row-group and column filtering continues to apply, so the embedded path retains the pushdown that the host already performs~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
