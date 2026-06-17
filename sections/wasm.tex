@@ -2,7 +2,7 @@
 
 A self-decoding dataset requires a decoder runtime that satisfies four criteria: \textbf{Portability}, \textbf{Security}, \textbf{Performance} and \textbf{Extensibility}.
 
-Gienieczko et al. (2025) identify WebAssembly (Wasm) as a runtime that satisfies all four simultaneously. Wasm is a portable low-level bytecode and virtual machine specification, designed as an abstraction over modern hardware rather than a commitment to any specific programming model, making it language-, hardware-, and platform-independent~\cite{haasBringingWebSpeed2017}.
+Gienieczko et al.\ (2025) identify WebAssembly (Wasm) as a runtime that satisfies all four simultaneously. Wasm is a portable low-level bytecode and virtual machine specification, designed as an abstraction over modern hardware rather than a commitment to any specific programming model, making it language-, hardware-, and platform-independent~\cite{haasBringingWebSpeed2017}.
 
 \subsubsection{Portability}
 
@@ -14,7 +14,7 @@ The WebAssembly specification provides machine-verifiable memory safety and isol
 
 \subsubsection{Performance}
 
-Wasm is JIT-compiled to the host's native instruction set at runtime, making near-native performance attainable. Additionally, AnyBlox avoids unnecessary data copying through a custom memory management scheme. Gienieczko et al. (2025) note that AnyBlox can passively benefit from future improvements in Wasm compiler technology, since all JIT and sandboxing details are encapsulated in \texttt{libanyblox} and not exposed in the public API~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
+Wasm is JIT-compiled to the host's native instruction set at runtime, making near-native performance attainable. Additionally, AnyBlox avoids unnecessary data copying through a custom memory management scheme. Gienieczko et al.\ (2025) note that AnyBlox can passively benefit from future improvements in Wasm compiler technology, since all JIT and sandboxing details are encapsulated in \texttt{libanyblox} and not exposed in the public API~\cite{gienieczkoAnyBloxFrameworkSelfDecoding2025}.
 
 \subsubsection{Extensibility}
 
